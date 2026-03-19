@@ -1,0 +1,16 @@
+-khởi tạo project 1 
+yarn 
+express
+git init
+tạo file gitignore 
+đẩy len  github
+nodemon 
+định nghĩ scripts 
+thiết lập thư mục views
+path ->sửa views ./ đẩy lên online
+tạo thư mục client và thư mục pages trong client chứa các trang
+them app .set('view engine','pug')
+tạo file home.pug
+tạo thêm folder layouts-> default
+tạo partials chứa thành phần code 
+cắt footer và header
