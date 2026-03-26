@@ -5,22 +5,24 @@ const app = express() // gọi hàm express
 const port = 3000 // cổng 
 const path =require('path');
 
+require('dotenv').config(); // biến môi trường
+
 const mongoose = require("mongoose");
 
-mongoose.connect(
-"mongodb://huuthang192004_db_user:bsUczfs1LKeWMrk1@ac-8e1qzqp-shard-00-00.6ttyt3c.mongodb.net:27017,ac-8e1qzqp-shard-00-01.6ttyt3c.mongodb.net:27017,ac-8e1qzqp-shard-00-02.6ttyt3c.mongodb.net:27017/tour-managerment?ssl=true&replicaSet=atlas-5mqbsc-shard-0&authSource=admin&retryWrites=true&w=majority"
+mongoose.connect(process.env.DATABASE
 )
 .then(()=>console.log("MongoDB connected"))
 .catch(err=>console.log(err));
 // tours=>Tour
 // products=>Product
 // users=>User
-const Tour = mongoose.model('Tour', { 
-  name: String ,vehicle:String});
 
+
+const Tour=require('./models/tour.model');
 
 const { title } = require('process');
 const { zstdCompress } = require('zlib');
+
 app.set('views',path.join(__dirname,'views')); // thiết lập view 
 app.set('view engine', 'pug') // chỉ định view enginner pug
 
@@ -32,18 +34,12 @@ app.use(express.static(path.join(__dirname,'public'))) // làm như này để o
 // get lấy ra tạo trang chủ 
 // req gửi lên
 // res trả về 
-app.get('/', (req, res) => { 
- res.render("client/pages/home",{pageTitle:"Trang Chủ"}) // mặc định nó đẵ vào thư mục views
-})
-app.get('/tours',  async (req, res)  => { 
-  var tourList =  await Tour.find({});
 
-  console.log(tourList);
+const tourController=require('./controllers/client/tour.controller')
+const homeController=require('./controllers/client/home.controller')
 
-  res.render('client/pages/tour',{pageTitle:"Danh sách tour",
-    tourList:tourList // chạy sang giao dien view
-  }) // mặc định nó đẵ vào thư mục views
-})
+app.get('/', homeController.home)
+app.get('/tours', tourController.tour)
 
 
 
