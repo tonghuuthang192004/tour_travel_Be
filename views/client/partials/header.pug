@@ -1,1 +1,82 @@
-div Header
+// Top Header
+.top-header
+  .container
+    .inner-wrap
+      .inner-item
+        i.fa-solid.fa-phone
+        | 0123 456 789
+      .inner-item
+        i.fa-solid.fa-envelope
+        | contact@example.com
+      .inner-item
+        i.fa-solid.fa-building
+        | 123 Nguyễn Văn A, Bình Dương
+
+// End Top Header
+
+// Header
+header.header
+  .container
+    .inner-wrap
+
+      // Menu Mobile
+      button.inner-menu-mobile
+        i.fa-solid.fa-bars
+
+      // Logo
+      .inner-logo
+        a(href="/")
+          img(
+            alt="My Website"
+            src="/assets/images/logo.png"
+          )
+
+      // Menu
+      nav.inner-menu
+        ul
+          li
+            a.active(href="/") Trang chủ
+
+          li
+            a(href="/category/dien-thoai") Điện thoại
+            i.fa-solid.fa-caret-down
+            ul
+              li
+                a(href="/category/iphone") iPhone
+              li
+                a(href="/category/samsung") Samsung
+              li
+                a(href="/category/xiaomi") Xiaomi
+
+          li
+            a(href="/category/laptop") Laptop
+            i.fa-solid.fa-caret-down
+            ul
+              li
+                a(href="/category/macbook") Macbook
+              li
+                a(href="/category/asus") Asus
+              li
+                a(href="/category/dell") Dell
+
+          li
+            a(href="/category/phu-kien") Phụ kiện
+
+          li
+            a(href="#") Tin tức
+
+          li
+            a(href="#") Liên hệ
+
+        .inner-overlay
+
+      // Cart
+      .inner-cart
+        a(href="/cart")
+          img(
+            alt="Cart"
+            src="/assets/images/icon-cart.svg"
+          )
+          span(mini-cart) 0
+
+// End Header

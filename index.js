@@ -7,19 +7,15 @@ const path =require('path');
 
 require('dotenv').config(); // biến môi trường
 
-const mongoose = require("mongoose");
-
-mongoose.connect(process.env.DATABASE
-)
-.then(()=>console.log("MongoDB connected"))
-.catch(err=>console.log(err));
 // tours=>Tour
 // products=>Product
 // users=>User
 
 
-const Tour=require('./models/tour.model');
 
+
+
+const clientRoutes=require('./routers/client/index.route');
 const { title } = require('process');
 const { zstdCompress } = require('zlib');
 
@@ -35,13 +31,16 @@ app.use(express.static(path.join(__dirname,'public'))) // làm như này để o
 // req gửi lên
 // res trả về 
 
-const tourController=require('./controllers/client/tour.controller')
-const homeController=require('./controllers/client/home.controller')
 
-app.get('/', homeController.home)
-app.get('/tours', tourController.tour)
+// kết nối database
+
+const database=require('./config/database');
+database.connect();
 
 
+
+// thiep lap duong dan 
+app.use("/",clientRoutes);
 
 // khởi chạy dự án cổng 3000
 app.listen(port, () => {
