@@ -1,8 +1,20 @@
 extends ../layouts/default.pug
-
+include ../mixins/box-breadcrumd.pug
 block main
-    h1 Tour
+  -
+    var breadcumb = {
+      image :"/assets/images/banner-6.jpg",
+      title : "tour nuoc ngoai",
+      list :[
+        {
+          link :"/",
+          title:"trang chu"
+        },
+        {
+          link:"/",
+          title:"Tour nuoc ngoai"
 
-    ul
-      each item in tourList
-        li #{item.name} (phương tiện :#{item.vehicle})
+        }
+      ]
+    };
+  +box-breadcrumb(breadcumb)
