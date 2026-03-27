@@ -1,117 +1,172 @@
 extends ../layouts/default.pug
-
+include ../mixins/product-item.pug
 block main
-  .section-1
+ .section-1
     .container
       .inner-wrap
         h1.inner-title(
+          data-aos-duration="800" 
           data-aos="fade-up"
-          data-aos-duration="800"
-        )
+          )
           | Du lịch Châu Á - Khám phá Mỹ, Úc, Âu
           br
           | Đi nơi đâu bạn muốn
-
         p.inner-desc(
+          data-aos-delay="150" 
+          data-aos-duration="800" 
           data-aos="fade-up"
-          data-aos-delay="150"
-          data-aos-duration="800"
-        )
+          )
           | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-
         form.inner-form(
+          data-aos-delay="300" 
+          data-aos-duration="800" 
+          data-aos="fade-up" 
           action="#"
-          data-aos="fade-up"
-          data-aos-delay="300"
-          data-aos-duration="800"
-        )
+          form-search
+          )
           .inner-box.inner-address
             .inner-input-group
               img.inner-icon(src="/assets/images/icon-address.svg")
               input.inner-input(
+                placeholder="Bạn muốn đi đâu?" 
                 type="text"
-                placeholder="Bạn muốn đi đâu?"
-                value=""
-              )
+                name="locationTo"
+                )
               i.fa-solid.fa-angle-down.inner-down
-
             .inner-suggest
               .inner-suggest-title
                 i.fa-solid.fa-location-dot
                 | Địa Điểm Hot
-
               .inner-suggest-list
                 .inner-item
                   .inner-item-image
-                    img(src="/assets/images/product-1.jpg" alt="Nhật Bản")
+                    img(
+                      alt="" 
+                      src="/assets/images/product-1.jpg"
+                      )
                   .inner-item-content
                     .inner-item-title Nhật Bản
                     .inner-item-desc 50 tours
-
                 .inner-item
                   .inner-item-image
-                    img(src="/assets/images/product-2.jpg" alt="Phú Quốc")
+                    img(
+                      alt="" 
+                      src="/assets/images/product-2.jpg"
+                      )
                   .inner-item-content
                     .inner-item-title Phú Quốc
                     .inner-item-desc 50 tours
-
                 .inner-item
                   .inner-item-image
-                    img(src="/assets/images/product-3.jpg" alt="Singapore")
+                    img(
+                      alt="" 
+                      src="/assets/images/product-3.jpg"
+                      )
                   .inner-item-content
                     .inner-item-title Singapore
                     .inner-item-desc 50 tours
-
           .inner-box.inner-user
             .inner-input-group
               img.inner-icon(src="/assets/images/icon-user.svg")
               input.inner-input(
+                placeholder="Số lượng" 
                 type="text"
-                placeholder="Số lượng"
-                value="1 Người lớn"
                 readonly
-              )
+                )
               i.fa-solid.fa-angle-down.inner-down
-
             .inner-quantity
               .inner-item
                 .inner-label Người lớn
                 .inner-count
                   span.inner-down -
-                  span.inner-number 1
+                  span.inner-number(stock-adult) 1
                   span.inner-up +
-
               .inner-item
                 .inner-label Trẻ em
                 .inner-count
                   span.inner-down -
-                  span.inner-number 0
+                  span.inner-number(stock-children) 0
                   span.inner-up +
-
               .inner-item
                 .inner-label Em bé
                 .inner-count
                   span.inner-down -
-                  span.inner-number 0
+                  span.inner-number(stock-baby) 0
                   span.inner-up +
-
           .inner-box.inner-calendar
             .inner-input-group
               img.inner-icon(src="/assets/images/icon-calendar.svg")
-              input.inner-input(
-                type="date"
-                value="2026-03-30"
-              )
-
+              input.inner-input(type="date" name="departureDate")
           button.inner-button(type="submit")
             i.fa-solid.fa-magnifying-glass
             | Tìm Kiếm
 
-  .section-2(
+
+ -
+    var productListSection2 = [
+      {
+        avatar: "/assets/images/product-1.jpg",
+        slug: "#",
+        discount: 30,
+        name: "Hà Nội - Lào Cai - SaPa 4N3Đ",
+        priceOld: 13650000,
+        priceNew: 2590000,
+        code: "TOUR000001",
+        departureDate: "22/12/2025",
+        time: "10 Ngày 9 Đêm",
+        ratingStars: 4,
+        ratingTotal: 20,
+        stock: 10
+      },
+      {
+        avatar: "/assets/images/product-2.jpg",
+        slug: "#",
+        discount: 0,
+        name: "Tour 2024 Phú Quốc - Thiên Đường Đảo Ngọc (3N2D)",
+        priceOld: 12000000,
+        priceNew: 12000000,
+        code: "TOUR000002",
+        departureDate: "24/12/2025",
+        time: "3 Ngày 2 Đêm",
+        ratingStars: 5,
+        ratingTotal: 30,
+        stock: 15
+      },
+      {
+        avatar: "/assets/images/product-3.jpg",
+        slug: "#",
+        discount: 30,
+        name: "Combo Đà Nẵng 2024: ĐÀ NẴNG - HỘI AN - BÀ NÀ HILL",
+        priceOld: 13650000,
+        priceNew: 2590000,
+        code: "TOUR000003",
+        departureDate: "22/12/2025",
+        time: "10 Ngày 9 Đêm",
+        ratingStars: 0,
+        ratingTotal: 0,
+        stock: 20
+      },
+      {
+        avatar: "/assets/images/product-3.jpg",
+        slug: "#",
+        discount: 30,
+        name: "Combo Đà Nẵng 2024: ĐÀ NẴNG - HỘI AN - BÀ NÀ HILL 2",
+        priceOld: 13650000,
+        priceNew: 2590000,
+        code: "TOUR000004",
+        departureDate: "22/12/2025",
+        time: "10 Ngày 9 Đêm",
+        ratingStars: 3,
+        ratingTotal: 12,
+        stock: 20
+      }
+    ];
+
+ .section-2(
+    data-aos-delay="450" 
+    data-aos-duration="800" 
     data-aos="fade-up"
-    data-aos-delay="450"
-    data-aos-duration="800"
-  )
+    )
     .container
       .inner-wrap
         .inner-info
@@ -119,12 +174,8 @@ block main
             | ƯU ĐÃI 2024
             br
             | TOUR GIỜ CHÓT
-
-          .inner-desc
-            | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-
+          .inner-desc Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
           .inner-clock-title Kết thúc sau
-
           .inner-clock-number(clock-expire="2025-04-15T15:00:00")
             span.inner-item
               .inner-number 00
@@ -138,79 +189,61 @@ block main
             span.inner-item
               .inner-number 00
               .inner-label Giây
-
           .inner-discount-title GIẢM ĐẾN
-
           .inner-discount-price
             | 990.000
             span.inner-unit đ
-
         .inner-list
           .swiper.swiper-section-2
             .swiper-wrapper
-              .swiper-slide
-                .product-item
-                  .inner-image
-                    img(src="/assets/images/product-1.jpg" alt="Tour Nhật Bản")
-                  .inner-content
-                    .inner-title Tour Nhật Bản 5N4Đ
-                    .inner-price 12.990.000đ
+                each item in productListSection2
+                 .swiper-slide
+                  +product-item(item)
+                   
+    
+                   
+                    
 
-              .swiper-slide
-                .product-item
-                  .inner-image
-                    img(src="/assets/images/product-2.jpg" alt="Tour Phú Quốc")
-                  .inner-content
-                    .inner-title Tour Phú Quốc 3N2Đ
-                    .inner-price 6.990.000đ
+                  // Product Item
 
-              .swiper-slide
-                .product-item
-                  .inner-image
-                    img(src="/assets/images/product-3.jpg" alt="Tour Singapore")
-                  .inner-content
-                    .inner-title Tour Singapore 4N3Đ
-                    .inner-price 9.990.000đ
-
-              .swiper-slide
-                .product-item
-                  .inner-image
-                    img(src="/assets/images/product-4.jpg" alt="Tour Hàn Quốc")
-                  .inner-content
-                    .inner-title Tour Hàn Quốc 5N4Đ
-                    .inner-price 13.990.000đ
-  .section-3
-  .container
-    h2.box-title(
-      data-aos="fade-up"
-      data-aos-duration="800"
-    )
-      | Khuyến Mại Bùng Nổ - Đánh Tan Nóng Bức
-
-    .swiper.swiper-section-3(
-      data-aos="fade-up"
-      data-aos-delay="150"
-      data-aos-duration="800"
-    )
-      .swiper-wrapper
-        .swiper-slide
-          .inner-item
-            a(href="#")
-              img(src="/assets/images/banner-1.png" alt="Banner 1")
-
-        .swiper-slide
-          .inner-item
-            a(href="#")
-              img(src="/assets/images/banner-2.png" alt="Banner 2")
-
-        .swiper-slide
-          .inner-item
-            a(href="#")
-              img(src="/assets/images/banner-3.png" alt="Banner 3")
-
-        .swiper-slide
-          .inner-item
-            a(href="#")
-              img(src="/assets/images/banner-4.png" alt="Banner 4")
-
-      .swiper-pagination
+ .section-3
+    .container
+      h2.box-title(
+        data-aos-duration="800" 
+        data-aos="fade-up"
+        ) Khuyến Mại Bùng Nổ - Đánh Tan Nóng Bức
+      .swiper.swiper-section-3(
+        data-aos-delay="150" 
+        data-aos-duration="800" 
+        data-aos="fade-up"
+        )
+        .swiper-wrapper
+          .swiper-slide
+            .inner-item
+              a(href="#")
+                img(
+                  alt="" 
+                  src="/assets/images/banner-1.png"
+                  )
+          .swiper-slide
+            .inner-item
+              a(href="#")
+                img(
+                  alt="" 
+                  src="/assets/images/banner-2.png"
+                  )
+          .swiper-slide
+            .inner-item
+              a(href="#")
+                img(
+                  alt="" 
+                  src="/assets/images/banner-3.png"
+                  )
+          .swiper-slide
+            .inner-item
+              a(href="#")
+                img(
+                  alt="" 
+                  src="/assets/images/banner-3.png"
+                  )
+        .swiper-pagination
