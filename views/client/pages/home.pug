@@ -247,3 +247,122 @@ block main
                   src="/assets/images/banner-3.png"
                   )
         .swiper-pagination
+ .section-4
+    .container
+      h2.box-title(
+        data-aos-duration="800" 
+        data-aos="fade-up"
+        ) Tour Trong Nước
+      .inner-wrap(
+        data-aos-delay="150" 
+        data-aos-duration="800" 
+        data-aos="fade-up"
+        )
+        each item in productListSection2
+          // Product Item
+          +product-item(item)
+          // End Product Item
+      .inner-button
+        a.button-outline(href="#") Xem tất cả
+ .section-5(
+    data-aos-duration="800" 
+    data-aos="fade-up"
+    )
+    .container
+      .inner-image
+        a(href="#")
+          img(
+            alt="" 
+            src="/assets/images/banner-4.png"
+            )
+ .section-4
+    .container
+      h2.box-title(
+        data-aos-duration="800" 
+        data-aos="fade-up"
+        ) Tour Nước Ngoài
+      .inner-wrap(
+        data-aos-delay="150" 
+        data-aos-duration="800" 
+        data-aos="fade-up"
+        )
+        each item in productListSection2
+         
+            +product-item(item)
+         
+      .inner-button
+        a.button-outline(href="#") Xem tất cả
+ .section-5(
+    data-aos-duration="800" 
+    data-aos="fade-up"
+    )
+    .container
+      .inner-image
+        a(href="#")
+          img(
+            alt="" 
+            src="/assets/images/banner-5.png"
+            )
+ .section-8
+    .container
+      h2.box-title(
+        data-aos-duration="800" 
+        data-aos="fade-up"
+        ) Tin Tức Mới
+      .inner-wrap(
+        data-aos-delay="150" 
+        data-aos-duration="800" 
+        data-aos="fade-up"
+        )
+        .blog-item
+          a(href="#")
+            .inner-image
+              img(
+                alt="" 
+                src="/assets/images/blog-1.jpg"
+                )
+            .inner-content
+              .inner-date 23/05/2024
+              h3.inner-title Homestay “cổ tích” giữa Đà Lạt mộng mơ
+        .blog-item-2
+          a(href="#")
+            .inner-image
+              img(
+                alt="" 
+                src="/assets/images/blog-2.jpg"
+                )
+            .inner-content
+              .inner-date 23/05/2024
+              h3.inner-title Top 5 điểm check in độc đáo tại Singapore
+              .inner-desc
+                | Nếu bạn nghĩ du lịch Singapore rất nhàm chán vì chỉ mãi quanh quẩn trong những khối bê tông vô cảm thì bạn “chắc chưa?”. Tuy đảo quốc Sư Tử không phải là một quốc gia rộng lớn nhưng các địa điểm du lịch tại Singapore chưa từng đánh mất sức hút đối với cộng đồng xê dịch quốc tế.
+        .blog-item
+          a(href="#")
+            .inner-image
+              img(
+                alt="" 
+                src="/assets/images/blog-3.jpg"
+                )
+            .inner-content
+              .inner-date 23/05/2024
+              h3.inner-title Đặc sản không thể bỏ qua khi đến với Đà Nẵng - Hội An
+        .blog-item
+          a(href="#")
+            .inner-image
+              img(
+                alt="" 
+                src="/assets/images/blog-4.jpg"
+                )
+            .inner-content
+              .inner-date 23/05/2024
+              h3.inner-title Đảo Phú Quý Bình Thuận hot trend năm 2024
+        .blog-item
+          a(href="#")
+            .inner-image
+              img(
+                alt="" 
+                src="/assets/images/blog-5.jpg"
+                )
+            .inner-content
+              .inner-date 23/05/2024
+              h3.inner-title Trekking cắm trại tại Đà Lạt- Cảm nhận Đà Lạt qua từng bước chân           
