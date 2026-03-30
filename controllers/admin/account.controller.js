@@ -6,5 +6,12 @@ module.exports.register=(req, res) => {
 }
 
 module.exports.forgot=(req, res) => { 
- res.render("admin/pages/forgot-password",{pageTitle:"forgot"}) // mặc định nó đẵ vào thư mục views
+ res.render("admin/pages/forgot",{pageTitle:"forgot"}) // mặc định nó đẵ vào thư mục views
+}
+
+module.exports.otpPassword=(req, res) => { 
+ res.render("admin/pages/otp-password",{pageTitle:"otp-password"}) // mặc định nó đẵ vào thư mục views
+}
+module.exports.resetPassword=(req, res) => { 
+ res.render("admin/pages/reset-password",{pageTitle:"reset-password"}) // mặc định nó đẵ vào thư mục views
 }
