@@ -1,0 +1,168 @@
+extends ../layouts/default.pug
+include ../mixins/box-breadcrumd.pug
+
+block main
+  -
+    var breadcumb = {
+      image: "/assets/images/banner-6.jpg",
+      title: "tour nuoc ngoai",
+      list: [
+        {
+          link: "/",
+          title: "trang chu"
+        },
+        {
+          link: "/",
+          title: "Tour nuoc ngoai"
+        }
+      ]
+    };
+
+  +box-breadcrumb(breadcumb)
+
+  .section-10
+    .container
+      .inner-wrap
+
+        // LEFT
+        .inner-left
+
+          // IMAGES
+          .box-images
+            .inner-images-main
+              .swiper.swiper-box-images-main
+                .swiper-wrapper
+                  .swiper-slide
+                    .inner-image
+                      img(src="/assets/images/banner-3.png" alt="")
+                  .swiper-slide
+                    .inner-image
+                      img(src="/assets/images/banner-2.png" alt="")
+                  .swiper-slide
+                    .inner-image
+                      img(src="/assets/images/banner-3.png" alt="")
+
+            .inner-images-thumb
+              .swiper.swiper-box-images-thumb
+                .swiper-wrapper
+                  .swiper-slide
+                    .inner-image
+                      img(src="/assets/images/banner-3.png" alt="")
+                  .swiper-slide
+                    .inner-image
+                      img(src="/assets/images/banner-2.png" alt="")
+                  .swiper-slide
+                    .inner-image
+                      img(src="/assets/images/banner-3.png" alt="")
+
+          // TOUR INFO
+          .box-tour-info
+            .inner-title Thông Tin Tour
+            .inner-content
+              p Tour du lịch Đà Nẵng 3 ngày 2 đêm với nhiều điểm tham quan nổi tiếng như Bà Nà Hills, Cầu Vàng, Ngũ Hành Sơn và biển Mỹ Khê.
+            .inner-read-more
+              button.button-outline Xem tất cả
+
+          // TOUR SCHEDULE
+          .box-tour-schedule
+            .inner-title-main Lịch Trình Tour
+            .inner-list
+
+              .inner-item
+                .inner-title Ngày 1: Đà Nẵng
+                .inner-content
+                  p Tham quan Ngũ Hành Sơn, biển Mỹ Khê, ăn tối và nghỉ đêm tại khách sạn.
+
+              .inner-item
+                .inner-title Ngày 2: Bà Nà Hills
+                .inner-content
+                  p Tham quan Cầu Vàng, Fantasy Park và các khu vui chơi.
+
+              .inner-item
+                .inner-title Ngày 3: Hội An
+                .inner-content
+                  p Tham quan phố cổ Hội An, mua sắm và kết thúc tour.
+
+        // RIGHT
+        .inner-right
+          .box-tour-detail
+
+            .inner-title-main Chuyến Đi Của Bạn
+
+            .inner-product
+              .inner-image
+                img(src="/assets/images/banner-4.png" alt="")
+              .inner-info
+                .inner-title Tour Đà Nẵng 3N2Đ
+                .inner-rating
+                  .inner-stars
+                    i.fa-solid.fa-star
+                    i.fa-solid.fa-star
+                    i.fa-solid.fa-star
+                    i.fa-solid.fa-star
+                    i.fa-solid.fa-star
+                  .inner-number 500 lượt đánh giá
+
+            .inner-meta
+
+              .inner-item
+                i.fa-solid.fa-calendar-days
+                span Thời Gian:
+                span.inner-highlight 3 ngày 2 đêm
+
+              .inner-item
+                i.fa-solid.fa-truck-plane
+                span Phương Tiện:
+                span.inner-highlight Máy bay
+
+              .inner-item
+                i.fa-solid.fa-calendar-days
+                span Ngày Khởi Hành:
+                span.inner-highlight 20/07/2026
+
+            .inner-form
+              label.inner-label Khởi Hành Tại:
+              select
+                option(value="1") Hồ Chí Minh
+                option(value="2") Hà Nội
+                option(value="3") Đà Nẵng
+
+            .inner-quantity
+              label.inner-label Số Lượng Hành Khách
+
+              .inner-list
+
+                .inner-item
+                  .inner-item-label Người lớn:
+                  .inner-item-input
+                    input(type="number" value="1" min="0" max="20")
+                  .inner-item-price
+                    span 1
+                    span x
+                    span.inner-highlight 5.000.000
+
+                .inner-item
+                  .inner-item-label Trẻ em:
+                  .inner-item-input
+                    input(type="number" value="0" min="0" max="10")
+                  .inner-item-price
+                    span 0
+                    span x
+                    span.inner-highlight 3.000.000
+
+                .inner-item
+                  .inner-item-label Em bé:
+                  .inner-item-input
+                    input(type="number" value="0" min="0" max="5")
+                  .inner-item-price
+                    span 0
+                    span x
+                    span.inner-highlight 1.000.000
+
+            .inner-total
+              .inner-total-label Tổng cộng:
+              .inner-total-price
+                span 5.000.000
+                span đ
+
+            button.inner-button-add-cart Thêm Vào Giỏ Hàng

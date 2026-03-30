@@ -1,0 +1,131 @@
+extends ../layouts/default.pug
+
+block main
+  // section 11
+  .section-11.page-cart
+    .container
+      .inner-wrap
+        .inner-head
+          .inner-title Giỏ Hàng
+          a.inner-back(href="/")
+            | Quay lại mua hàng
+            i.fa-solid.fa-angle-right
+
+        .inner-tour-list.cart-list
+          .cart-item
+            .item-name Tour Đà Lạt 3N2Đ
+            .item-quantity SL: 1
+            .item-price 2.500.000đ
+
+          .cart-item
+            .item-name Tour Phú Quốc 4N3Đ
+            .item-quantity SL: 1
+            .item-price 3.000.000đ
+
+        .inner-coupon
+          form#coupon-form(action="")
+            input#coupon-input(
+              name="coupon"
+              placeholder="Nhập mã giảm giá"
+              type="text"
+            )
+            button(type="submit") Dùng Mã
+
+        .inner-list-price
+          .inner-item
+            .inner-label Tạm tính:
+            .inner-price
+              span(cart-sub-total) 5500000
+              span đ
+
+          .inner-item
+            .inner-label Giảm:
+            .inner-price -500000đ
+
+          .inner-item
+            .inner-label Thanh toán:
+            .inner-price-highlight
+              span(cart-total) 5000000
+              span đ
+
+  // section 12
+  .section-12
+    .container
+      .inner-wrap
+        form#order-form(action="")
+          .inner-info
+            .inner-title-main Thông Tin Khách Hàng
+
+            .inner-inputs
+              .inner-input
+                input#full-name-input(
+                  placeholder="Họ và tên"
+                  name="fullName"
+                  type="text"
+                )
+
+              .inner-input
+                input#phone-input(
+                  placeholder="Số điện thoại"
+                  name="phone"
+                  type="text"
+                )
+
+            textarea(
+              placeholder="Ghi chú"
+              name="note"
+            )
+
+          .inner-method
+            .inner-title-main Chọn phương thức thanh toán
+
+            .inner-list
+              .inner-item
+                input#methodMoney(
+                  checked
+                  value="money"
+                  name="method"
+                  type="radio"
+                )
+                label(for="methodMoney") Thanh toán tiền mặt khi đi tour
+
+              .inner-item
+                input#methodMomo(
+                  value="momo"
+                  name="method"
+                  type="radio"
+                )
+                label(for="methodMomo") Ví MoMo
+
+              .inner-item
+                input#methodZaloPay(
+                  value="zalopay"
+                  name="method"
+                  type="radio"
+                )
+                label(for="methodZaloPay") ZaloPay
+
+              .inner-item
+                input#methodVNPay(
+                  value="vnpay"
+                  name="method"
+                  type="radio"
+                )
+                label(for="methodVNPay") VNPay
+
+              .inner-item
+                input#methodBank(
+                  value="bank"
+                  name="method"
+                  type="radio"
+                )
+                label(for="methodBank") Chuyển khoản ngân hàng
+
+            .inner-info-bank
+              .inner-title Thông tin chuyển khoản
+              .inner-text Ngân hàng : Vietcombank
+              .inner-text Tên tài khoản: Le Van A
+              .inner-text STK: 0123456789
+
+          .inner-button
+            button(type="submit") ĐẶT TOUR

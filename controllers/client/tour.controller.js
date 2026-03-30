@@ -9,3 +9,10 @@ module.exports.tour= async (req, res)  => {
     tourList:tourList // chạy sang giao dien view
   }) // mặc định nó đẵ vào thư mục views
 }
+module.exports.detail =  (req, res)  => { 
+ 
+  res.render('client/pages/detail_tour',{pageTitle:"Chi tiết Tour",
+    
+  })
+  
+}
