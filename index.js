@@ -14,8 +14,11 @@ require('dotenv').config(); // biến môi trường
 
 
 
+const adminRoutes=require("./routers/admin/index.route");
+// console.log("addiinnnn",adminRoutes);
 
 const clientRoutes=require('./routers/client/index.route');
+
 const { title } = require('process');
 const { zstdCompress } = require('zlib');
 
@@ -38,9 +41,11 @@ const database=require('./config/database');
 database.connect();
 
 
-
 // thiep lap duong dan 
+app.use("/admin",adminRoutes);
+
 app.use("/",clientRoutes);
+
 
 // khởi chạy dự án cổng 3000
 app.listen(port, () => {
