@@ -19,6 +19,7 @@ const adminRoutes=require("./routers/admin/index.route");
 
 const clientRoutes=require('./routers/client/index.route');
 
+const variableConfig=require('./config/variable')
 const { title } = require('process');
 const { zstdCompress } = require('zlib');
 
@@ -39,12 +40,16 @@ app.use(express.static(path.join(__dirname,'public'))) // làm như này để o
 
 const database=require('./config/database');
 database.connect();
+// tạo biến toàn cục xử dụng tất cả các file 
 
+app.locals.pathAdmin=variableConfig.pathAdmin;
 
 // thiep lap duong dan 
-app.use("/admin",adminRoutes);
+app.use(`/${variableConfig.pathAdmin}`,adminRoutes);
 
 app.use("/",clientRoutes);
+
+
 
 
 // khởi chạy dự án cổng 3000
