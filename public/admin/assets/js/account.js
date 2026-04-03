@@ -1,3 +1,4 @@
+
 // Login Form
 const loginForm = document.querySelector("#login-form");
 if(loginForm) {
@@ -147,6 +148,7 @@ if(registerForm) {
         email: email,
         password: password
       };
+      console.log(pathAdmin);
 
       fetch(`/${pathAdmin}/account/register`, {
         method: "POST",
@@ -157,6 +159,9 @@ if(registerForm) {
       })
         .then(res => res.json())
         .then(data => {
+          
+          console.log(data);
+         
           if(data.code == "error") {
             alert(data.message);
           }
@@ -164,7 +169,9 @@ if(registerForm) {
           if(data.code == "success") {
             window.location.href = `/${pathAdmin}/account/register-initial`;
           }
-        })
+      
+    })
+        
     })
   ;
 }

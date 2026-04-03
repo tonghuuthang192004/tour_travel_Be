@@ -44,6 +44,10 @@ database.connect();
 
 app.locals.pathAdmin=variableConfig.pathAdmin;
 
+
+// cho phép gửi data lên dạng json 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 // thiep lap duong dan 
 app.use(`/${variableConfig.pathAdmin}`,adminRoutes);
 
